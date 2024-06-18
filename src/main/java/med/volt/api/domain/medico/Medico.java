@@ -1,12 +1,21 @@
-package med.volt.api.medico;
+package med.volt.api.domain.medico;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.volt.api.direccion.Direccion;
+import med.volt.api.domain.direccion.Direccion;
 
+//Clase medico que contiene:
+/*
+@Table definir que es una tabla
+@Entiry definir que es una entidad
+@Getter de lombook para llamar los getter y setter sin necesidad de crearlos
+@No/ALLArgsConstructor se refiere a constructores vacios y llenos
+@EqualsAndHasCode para identificar el id como clave primaria
+
+*/
 @Table(name = "medicos")
 @Entity(name = "Medico")
 @Getter
@@ -38,7 +47,7 @@ public class Medico {
         this.direccion = new Direccion(datosRegistroMedico.direccion());
     }
 
-    public void actualizarDatos(DatosActualizarMedico datosActualizarMedico) {
+    public void actualizarMedico(DatosActualizarMedico datosActualizarMedico) {
         if (datosActualizarMedico.nombre() != null) {
             this.nombre = datosActualizarMedico.nombre();
         }

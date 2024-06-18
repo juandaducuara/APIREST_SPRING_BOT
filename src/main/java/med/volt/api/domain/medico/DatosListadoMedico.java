@@ -1,7 +1,8 @@
-package med.volt.api.medico;
+package med.volt.api.domain.medico;
 
 
-
+//Solo los datos que quiere actuzaliar
+//Anotacion @NotNull para valirdar si viene vacio
 public record DatosListadoMedico(
         Long id,
         String nombre,

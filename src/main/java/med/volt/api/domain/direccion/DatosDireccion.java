@@ -1,4 +1,4 @@
-package med.volt.api.direccion;
+package med.volt.api.domain.direccion;
 
 import jakarta.validation.constraints.NotBlank;
 

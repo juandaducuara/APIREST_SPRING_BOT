@@ -1,5 +1,5 @@
-package med.volt.api.medico;
-
+package med.volt.api.domain.medico;
+// Parametrizacion de datos
 public enum Especialidad {
     ORTOPEDIA,
     CARDIOLOGIA,
