@@ -1,6 +1,7 @@
 package med.volt.api.infra.errores;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.ValidationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -21,6 +22,14 @@ public class TratodorDeErrores {
                 .map(DatosErrorValidacion::new)
                 .toList();
         return ResponseEntity.badRequest().body(errores);
+    }
+    @ExceptionHandler(ValidacionDeIntegirad.class)
+    public ResponseEntity errorHandlerValidacionesDeIntegridad(Exception exception) {
+        return ResponseEntity.badRequest().body(exception.getMessage());
+    }
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity errorHandlerValidacionesDeNegocio(Exception exception) {
+        return ResponseEntity.badRequest().body(exception.getMessage());
     }
 
     private record DatosErrorValidacion(String campo, String error) {

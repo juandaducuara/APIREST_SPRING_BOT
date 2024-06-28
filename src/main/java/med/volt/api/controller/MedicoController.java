@@ -1,5 +1,6 @@
 package med.volt.api.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.volt.api.domain.direccion.DatosDireccion;
@@ -18,6 +19,7 @@ import java.net.URI;
 // Con los DTO se parametrizan los datos que se van a enviar
 @RestController
 @RequestMapping("/medicos")
+@SecurityRequirement(name = "bearer-key")
 public class MedicoController {
     // Sobrecarga de dependencias
     @Autowired
